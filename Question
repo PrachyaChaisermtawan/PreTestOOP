@@ -1,0 +1,11 @@
+// สร้างออบเจ็คของคลาส BillPayment
+BillPayment bill = new BillPayment("Electric", 250);
+
+// ตั้งค่าหน่วยปัจจุบันของบิล
+bill.setBillCurrentUnit(450);
+
+// คำนวณบิล
+double billResult = bill.calculateBill();
+
+// แสดงผลลัพธ์บิล
+bill.displayBill();

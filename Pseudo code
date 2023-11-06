@@ -1,0 +1,43 @@
+// Constructor
+Method BillPayment(type: String, lastUnit: int)
+    Set bill_type = type
+    Set bill_lastUnit = lastUnit
+    Set bill_currentUnit = 0
+    Set bill_result = 0.0
+End Method
+
+// เมธอดเก็ตเตอร์สำหรับ หน่วยปัจจุบันของบิล
+Method getBill_currentUnit(): int
+    Return bill_currentUnit
+End Method
+
+// เมธอดเซ็ตเตอร์สำหรับ หน่วยปัจจุบันของบิล
+Method setBillCurrentUnit()
+    Input newUnit
+    If newUnit < bill_lastUnit
+        Set bill_currentUnit = newUnit
+    Else
+        Display "Please Insert a correct unit"
+    End If
+End Method
+
+// เมธอดสำหรับคำนวณหน่วย
+Method calculateUnit(): int
+    Return bill_currentUnit - bill_lastUnit
+End Method
+
+// เมธอดสำหรับคำนวณบิล
+Method calculateBill(): double
+    If bill_type is "Water"
+        Set bill_result = calculateUnit() * 5
+    Else If bill_type is "Electric"
+        Set bill_result = calculateUnit() * 6
+    End If
+    Return bill_result
+End Method
+
+// เมธอดสำหรับแสดงบิล
+Method displayBill()
+    Display "My payment bill is : " + bill_type
+    Display "The result is : " + bill_result
+End Method
